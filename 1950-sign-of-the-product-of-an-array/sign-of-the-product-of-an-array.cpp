@@ -1,23 +1,22 @@
 class Solution {
 public:
     int arraySign(vector<int>& nums) {
-        int pos=0;
-        int neg=0;
-        bool zero=false;
-        for(int i=0;i<nums.size();i++){
-           
-             if(nums[i]<0){
-                neg++;
-            }
-          if(nums[i]==0){
-            zero=true;
-            return 0;
-          }
+       return solve(nums,0,0);
+    }
+
+    int solve(vector<int>&nums,int idx,int neg_c){
+
+        if(idx==nums.size()){
+            return (neg_c%2==0 )? 1:-1;
+        }
+       if(nums[idx]==0){
+        return 0;
+       }
+       if(nums[idx]<0){
+        neg_c++;
+       }
       
-        }
-        if(neg%2==0){
-            return 1;
-        }
-      return -1;
+      return solve(nums,idx+1,neg_c);
+       
     }
 };
