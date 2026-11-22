@@ -1,13 +1,19 @@
 class Solution {
 public:
     bool checkString(string s) {
-        for(int i=0;i<s.length();i++){
-            if(s[i]=='b'){
-                for(int j=i;j<s.length();j++){
-                    if(s[j]=='a'){
-                        return false;
-                    }
-                }
+       int n=s.length();
+       int idx;
+        for(int i=0;i<n;i++){
+          if(s[i]=='b'){
+            idx=i;
+            break;
+          }
+
+        }
+
+        for(int i=idx;i<n;i++){
+            if(s[i]=='a'){
+                return false;
             }
         }
         return true;
